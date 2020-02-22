@@ -9,6 +9,7 @@ import javax.servlet.ServletRegistration;
 
 /**
  * 用来替代 web.xml
+ * ServletContainerInitializer         WebApplicationInitializer
  */
 public class WebInitializer implements WebApplicationInitializer {
     @Override
@@ -22,5 +23,7 @@ public class WebInitializer implements WebApplicationInitializer {
         // 4、填写 url 路径映射
         dispatcherServlet.addMapping("/");
         dispatcherServlet.setLoadOnStartup(1);
+        // 增加  Callable  会报错。。。。。
+        dispatcherServlet.setAsyncSupported(true);
     }
 }
